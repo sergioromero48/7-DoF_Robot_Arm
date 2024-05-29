@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sergio/marvin-vision/src/robot_arm_pkg/build/devel/setup.sh
