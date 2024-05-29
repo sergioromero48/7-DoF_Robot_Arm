@@ -1,1 +1,1 @@
-# 7-DoF_Robot_Arm
+# robot_arm_pkg
