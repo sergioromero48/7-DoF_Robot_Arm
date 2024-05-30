@@ -73,6 +73,7 @@
 /home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/std_srvs_generate_messages_lisp.dir
 /home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/std_srvs_generate_messages_nodejs.dir
 /home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/std_srvs_generate_messages_py.dir
+/home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/robot_arm_pkg_node.dir
 /home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/test.dir
 /home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/edit_cache.dir
 /home/sergio/marvin-vision/src/robot_arm_pkg/build/CMakeFiles/rebuild_cache.dir

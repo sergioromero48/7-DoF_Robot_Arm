@@ -1,6 +1,11 @@
 [
 {
   "directory": "/home/sergio/marvin-vision/src/robot_arm_pkg/build",
+  "command": "/usr/bin/c++ -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"robot_arm_pkg\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/OGRE/Overlay -I/usr/include/OGRE -I/home/sergio/libraries/ik/include -g -o CMakeFiles/robot_arm_pkg_node.dir/src/marvin_ik.cpp.o -c /home/sergio/marvin-vision/src/robot_arm_pkg/src/marvin_ik.cpp",
+  "file": "/home/sergio/marvin-vision/src/robot_arm_pkg/src/marvin_ik.cpp"
+},
+{
+  "directory": "/home/sergio/marvin-vision/src/robot_arm_pkg/build",
   "command": "/usr/bin/c++ -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest -g -fPIC -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o gtest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /usr/src/googletest/googlemock/src/gmock-all.cc",
   "file": "/usr/src/googletest/googlemock/src/gmock-all.cc"
 },
