@@ -14,15 +14,15 @@ def initialize_publishers():
     """Initialize ROS publishers for each joint controller."""
     pubs = []
     # Adjust the range according to your number of joints and naming convention
-    for i in range(1, 4):  # Example for 3 joints
+    for i in range(1, 5):
         topic = '/marvin_arm/joint{}_position_controller/command'.format(i)
         pubs.append(rospy.Publisher(topic, Float64, queue_size=10))
     return pubs
 
 def test_joints(publishers):
     """Test each joint by moving it to a test position and back in a continuous loop."""
-    test_positions = [2, 2, 2]  # Example test positions for three joints
-    initial_positions = [0.0, 0.0, 0.0]  # Assuming initial positions are 0
+    test_positions = [1.6, 1.6, 1.6, 1.6]  # Example test positions for three joints
+    initial_positions = [0.0, 0.0, 0.0, 0.0]  # Assuming initial positions are 0
 
     while not rospy.is_shutdown():
         for pub, test_pos, initial_pos in zip(publishers, test_positions, initial_positions):

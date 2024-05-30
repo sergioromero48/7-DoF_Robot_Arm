@@ -10,7 +10,8 @@
           output="screen" ns="/marvin_arm" args="joint_state_controller
                                                 joint1_position_controller
                                                 joint2_position_controller
-                                                joint3_position_controller"/>
+                                                joint3_position_controller
+                                                joint4_position_controller"/>
 
     <!-- Robot State Publisher GUI -->
     <!-- Publishes joint states as TF transforms with a GUI for real-time visualization and debugging -->

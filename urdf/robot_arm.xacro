@@ -13,16 +13,17 @@
     <xacro:property name="mass_5" value="2.5" />
     <xacro:property name="mass_6" value="0.2" />
 
-    <xacro:property name="radius_1" value="0.05" />     <!--base_link radius-->
+    <xacro:property name="radius_1" value="0.06" />     <!--base_link radius-->
     <xacro:property name="radius_2" value="0.03" />     <!--link_1 radius-->
     <xacro:property name="radius_3" value="0.03" />     <!--link_2 radius-->
-    <xacro:property name="radius_4" value="0.025" />    <!--link_3 radius-->
-    <xacro:property name="radius_5" value="0.015" />    <!--link_4 radius-->
+    <xacro:property name="radius_4" value="0.03" />     <!--link_3 radius-->
+    <xacro:property name="radius_5" value="0.025" />    <!--link_4 radius-->
 
     <xacro:property name="length_1" value="0.1" />      <!--base_link length-->
-    <xacro:property name="length_2" value="0.4" />      <!--link_1 length-->
-    <xacro:property name="length_3" value="0.35" />      <!--link_2 length-->
-    <xacro:property name="length_4" value="0.15" />      <!--link_3 length-->
+    <xacro:property name="length_2" value="0.2" />      <!--link_1 length-->
+    <xacro:property name="length_3" value="0.3" />     <!--link_2 length-->
+    <xacro:property name="length_4" value="0.3" />     <!--link_3 length-->
+    <xacro:property name="length_5" value="0.15" />      <!--link_4 length-->
 
     <!-- Define Rviz colors -->
     <material name="Black">
@@ -275,10 +276,72 @@
     <xacro:gazebo_grey_link_color_block link_name="link_3"/>
 
     <!--=============================================================================-->
+    <!-- Intermediate link 3 -->
+    <link name="link_3_endlink">
+        <xacro:inertial_block mass="${mass_4/3.0}" length="${2*radius_4+2*radius_5}" radius="${radius_4}"/>
+        <visual>
+            <origin xyz="0.0 0.0 ${(2*radius_4+2*radius_5)/2.0}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${radius_4*1.1}" length="${2*radius_4+2*radius_5}"/>
+            </geometry>
+            <material name="LightBlue"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 ${(2*radius_4+2*radius_5)/2.0}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${radius_4*1.1}" length="${2*radius_4+2*radius_5}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <xacro:gazebo_blue_link_color_block link_name="link_3_endlink"/>
+
+    <joint name="link_3_endjoint" type="fixed">
+        <origin xyz="${-radius_4} 0.0 ${length_4 - 0.01}" rpy="0.0 ${M_PI/2.0} 0.0"/>
+        <parent link="link_3"/>
+        <child link="link_3_endlink"/>
+    </joint>
+
+    <gazebo reference="link_3_endjoint">
+        <disableFixedJointLumping>true</disableFixedJointLumping> 
+        <preserveFixedJoint>true</preserveFixedJoint>
+    </gazebo>
+
+    <joint name="joint_4" type="revolute">
+        <origin xyz="${radius_4 + radius_5} 0.0 ${length_4}" rpy="0.0 0.0 0.0"/>
+        <parent link="link_3"/>
+        <child link="link_4"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit lower="0.0" upper="${M_PI * 2}" effort="300.0" velocity="1.0"/>
+    </joint>
+
+    <!--=============================================================================-->
+    <!-- link_3 -->
+    <link name="link_4">
+        <xacro:inertial_block mass="${mass_5}" length="${length_5}" radius="${radius_5}"/>
+        <visual>
+            <origin xyz="0.0 0.0 ${length_5/2.0}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${radius_5}" length="${length_5}"/>
+            </geometry>
+            <material name="Grey"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 ${length_5/2.0}" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <cylinder radius="${radius_5}" length="${length_5}"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <xacro:gazebo_grey_link_color_block link_name="link_4"/>
+
+    <!--=============================================================================-->
     <!-- Transmissions for ros control -->
     <xacro:transmission_block joint_name="joint_1"/>
     <xacro:transmission_block joint_name="joint_2"/>
     <xacro:transmission_block joint_name="joint_3"/>
+    <xacro:transmission_block joint_name="joint_4"/>
 
     <!--=============================================================================-->
     <!-- ros_control plugin -->

@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "robot_arm_pkg")
 set(robot_arm_pkg_VERSION "0.0.0")
-set(robot_arm_pkg_MAINTAINER "sergio <sergio@todo.todo>")
+set(robot_arm_pkg_MAINTAINER "sergio <sergioromero48@outlook.com>")
 set(robot_arm_pkg_PACKAGE_FORMAT "2")
 set(robot_arm_pkg_BUILD_DEPENDS "geometry_msgs" "joint_state_publisher_gui" "roscpp" "rviz" "tf2" "urdf")
 set(robot_arm_pkg_BUILD_EXPORT_DEPENDS "geometry_msgs" "joint_state_publisher_gui" "roscpp" "rviz" "tf2" "urdf")
