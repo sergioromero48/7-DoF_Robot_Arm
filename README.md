@@ -7,7 +7,7 @@ This ROS package provides control and simulation capabilities for a robotic arm.
 - **Joint Position Control**: Control each joint of the robot arm using PID controllers.
 - **Gazebo Simulation**: Test the robot arm in a simulated environment provided by Gazebo.
 - **RViz Visualization**: Visualize the robot arm's state and movement in real-time with RViz.
-- **Inverse Kinematics**: Utilize a fast IK solver to calculate joint positions based on target end-effector positions.
+- **Inverse Kinematics**: Utilize a fast IK solver, based on the [IK library](https://github.com/TheComet/ik), to calculate joint positions based on target end-effector positions.
 
 ## Dependencies
 This package depends on several ROS packages and external libraries:
@@ -16,12 +16,18 @@ This package depends on several ROS packages and external libraries:
 - [RViz](http://wiki.ros.org/rviz)
 - [joint_state_publisher](http://wiki.ros.org/joint_state_publisher)
 - [robot_state_publisher](http://wiki.ros.org/robot_state_publisher)
+- [IK library](https://github.com/TheComet/ik): A fast and flexible Inverse Kinematics library essential for the robotic arm's movement computation.
 
 ## Installation
-To install this package, clone it into your catkin workspace and compile it using catkin_make.
 
+### Prerequisites
+Before installing the `robot_arm_pkg`, ensure you have the external IK library installed:
 ```bash
-cd ~/catkin_ws/src
-git clone https://github.com/sergioromero48/robot_arm_pkg.git
-cd ~/catkin_ws
-catkin_make
+cd ~
+mkdir -p libraries && cd libraries
+git clone https://github.com/TheComet/ik.git
+cd ik
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+sudo make install
