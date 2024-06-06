@@ -6,12 +6,14 @@ from fabrikSolver import FabrikSolver3D
 
 arm = FabrikSolver3D()
 
-arm.addSegment(100, 0, 0)
-arm.addSegment(100, 0, 0)
+arm.addSegment(0, 0, 0.2)
+arm.addSegment(0, 0, 0.3)
+arm.addSegment(0, 0, 0.3)
+arm.addSegment(0, 0, 0.1)
 
-arm.compute(100, 150, 50)
+arm.compute(0.2, 0.1, 0.1)
 
-# arm.plot()
+arm.plot()
 
 for i, segment in enumerate(arm.segments):
     print(f"Segment {i+1} endpoint coordinates: {segment.point}")
